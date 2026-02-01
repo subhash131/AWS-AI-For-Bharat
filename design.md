@@ -4,6 +4,9 @@
 
 The Technical Design Document Intelligence System is built as a multi-layered architecture that transforms static design documents into an intelligent, queryable memory layer for AI coding assistants.
 
+![System Architecture](images/system-architecture.png)
+*Figure 1: Complete system architecture showing the three-layer design with client applications, application server components, and data layer*
+
 ## Architecture Layers
 
 ### 1. Client Layer
@@ -52,6 +55,9 @@ Multi-stage processing system:
 
 ## System Workflow
 
+![Complete Workflow Diagram](images/workflow-diagram.png)
+*Figure 3: End-to-end workflow showing the two-phase process from design governance to intelligent code generation*
+
 ### Phase 1: Design Governance
 1. **Developer defines architecture & patterns** through TDD Web App
 2. **System indexes structured context** into the Design Memory Layer
@@ -75,6 +81,9 @@ The core intelligence layer that:
 - **Validate Tech Stack**: Ensures generated code aligns with approved technologies
 - **Index Design Context**: Creates searchable knowledge base
 - **Retrieve Scoped Rules**: Returns only relevant architectural guidance
+
+![Technical Design Intelligence System](images/intelligence-system.png)
+*Figure 2: Intelligence system workflow showing how developers and AI agents interact with the design memory layer*
 
 ### MCP Tools Exposed
 The system exposes these tools through the Model Context Protocol:
@@ -128,3 +137,35 @@ The system exposes these tools through the Model Context Protocol:
 - **Authorization**: Role-based access to different architectural layers
 - **API security**: Rate limiting and validation on MCP endpoints
 - **Data isolation**: Multi-tenant support for different projects/teams
+
+## Architecture Diagrams Reference
+
+### Figure 1: System Architecture
+The complete three-layer architecture showing:
+- **Client Layer**: TDD Web App and AI Coding Agents
+- **Application Server Layer**: Core API Service, MCP Server, and Graph Processing Pipeline
+- **Data Layer**: PostgreSQL for documents and Neo4j for graph relationships
+
+### Figure 2: Technical Design Intelligence System
+The intelligence workflow demonstrating:
+- Developer/Architect interactions with the system
+- AI Coding Agent query patterns
+- Design memory layer operations
+- Context retrieval and rule scoping
+
+### Figure 3: Complete Workflow
+The end-to-end process flow illustrating:
+- Phase 1: Design governance and knowledge indexing
+- Phase 2: MCP-driven intelligent context delivery
+- Developer validation and code commitment cycle
+- Exposed MCP tools and their functionality
+
+## Implementation Notes
+
+The architecture diagrams show several key implementation details:
+
+1. **ETL Pipeline**: The Extract, Transform, Load process that converts documents into queryable graph structures
+2. **Graph Traversal**: Cypher queries enable efficient relationship-based context retrieval
+3. **MCP Tools**: Specific tools exposed (`query_design_rules`, `get_module_constraints`, `check_tech_stack`)
+4. **Semantic Processing**: RAG-based query understanding for intelligent context matching
+5. **Scoped Responses**: Context filtering ensures AI agents receive only relevant architectural guidance
